@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		812A94C01FF111890090F59D /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 812A94B81FF111890090F59D /* SVIndefiniteAnimatedView.m */; };
+		812A94C11FF111890090F59D /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 812A94BA1FF111890090F59D /* SVProgressAnimatedView.m */; };
+		812A94C21FF111890090F59D /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 812A94BB1FF111890090F59D /* SVProgressHUD.bundle */; };
+		812A94C31FF111890090F59D /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 812A94BD1FF111890090F59D /* SVProgressHUD.m */; };
+		812A94C41FF111890090F59D /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 812A94BF1FF111890090F59D /* SVRadialGradientLayer.m */; };
+		97BF77E31FEBB78D00514CAD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BF77E21FEBB78D00514CAD /* AppDelegate.m */; };
+		97BF77E61FEBB78D00514CAD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BF77E51FEBB78D00514CAD /* ViewController.m */; };
+		97BF77E91FEBB78D00514CAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97BF77E71FEBB78D00514CAD /* Main.storyboard */; };
+		97BF77EB1FEBB78D00514CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BF77EA1FEBB78D00514CAD /* Assets.xcassets */; };
+		97BF77EE1FEBB78D00514CAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97BF77EC1FEBB78D00514CAD /* LaunchScreen.storyboard */; };
+		97BF77F11FEBB78D00514CAD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BF77F01FEBB78D00514CAD /* main.m */; };
+		A30DE939B79726AF0B6B4B0B /* libPods-IGBLEPeripheralDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C8322C1CD6C8DF1A000D51 /* libPods-IGBLEPeripheralDemo.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		11771DF4732ACECE4EB50DC3 /* Pods-IGBLEPeripheralDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IGBLEPeripheralDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IGBLEPeripheralDemo/Pods-IGBLEPeripheralDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		812A94B71FF111890090F59D /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		812A94B81FF111890090F59D /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		812A94B91FF111890090F59D /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		812A94BA1FF111890090F59D /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		812A94BB1FF111890090F59D /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		812A94BC1FF111890090F59D /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		812A94BD1FF111890090F59D /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		812A94BE1FF111890090F59D /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		812A94BF1FF111890090F59D /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		8ABF6F9C9DB8B34085040D75 /* Pods-IGBLEPeripheralDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IGBLEPeripheralDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-IGBLEPeripheralDemo/Pods-IGBLEPeripheralDemo.release.xcconfig"; sourceTree = "<group>"; };
+		97BF77DE1FEBB78D00514CAD /* IGBLEPeripheralDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IGBLEPeripheralDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		97BF77E11FEBB78D00514CAD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		97BF77E21FEBB78D00514CAD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		97BF77E41FEBB78D00514CAD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		97BF77E51FEBB78D00514CAD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		97BF77E81FEBB78D00514CAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		97BF77EA1FEBB78D00514CAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		97BF77ED1FEBB78D00514CAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		97BF77EF1FEBB78D00514CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97BF77F01FEBB78D00514CAD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A8C8322C1CD6C8DF1A000D51 /* libPods-IGBLEPeripheralDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IGBLEPeripheralDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		97BF77DB1FEBB78D00514CAD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A30DE939B79726AF0B6B4B0B /* libPods-IGBLEPeripheralDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B2BD7D51AB231C8C6D11801 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8C8322C1CD6C8DF1A000D51 /* libPods-IGBLEPeripheralDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3BCE6454BE1F1FB3CDB261D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				11771DF4732ACECE4EB50DC3 /* Pods-IGBLEPeripheralDemo.debug.xcconfig */,
+				8ABF6F9C9DB8B34085040D75 /* Pods-IGBLEPeripheralDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		812A94B61FF111890090F59D /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				812A94B71FF111890090F59D /* SVIndefiniteAnimatedView.h */,
+				812A94B81FF111890090F59D /* SVIndefiniteAnimatedView.m */,
+				812A94B91FF111890090F59D /* SVProgressAnimatedView.h */,
+				812A94BA1FF111890090F59D /* SVProgressAnimatedView.m */,
+				812A94BB1FF111890090F59D /* SVProgressHUD.bundle */,
+				812A94BC1FF111890090F59D /* SVProgressHUD.h */,
+				812A94BD1FF111890090F59D /* SVProgressHUD.m */,
+				812A94BE1FF111890090F59D /* SVRadialGradientLayer.h */,
+				812A94BF1FF111890090F59D /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		97BF77D51FEBB78C00514CAD = {
+			isa = PBXGroup;
+			children = (
+				812A94B61FF111890090F59D /* SVProgressHUD */,
+				97BF77E01FEBB78D00514CAD /* IGBLEPeripheralDemo */,
+				97BF77DF1FEBB78D00514CAD /* Products */,
+				3BCE6454BE1F1FB3CDB261D7 /* Pods */,
+				3B2BD7D51AB231C8C6D11801 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		97BF77DF1FEBB78D00514CAD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				97BF77DE1FEBB78D00514CAD /* IGBLEPeripheralDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		97BF77E01FEBB78D00514CAD /* IGBLEPeripheralDemo */ = {
+			isa = PBXGroup;
+			children = (
+				97BF77E11FEBB78D00514CAD /* AppDelegate.h */,
+				97BF77E21FEBB78D00514CAD /* AppDelegate.m */,
+				97BF77E41FEBB78D00514CAD /* ViewController.h */,
+				97BF77E51FEBB78D00514CAD /* ViewController.m */,
+				97BF77E71FEBB78D00514CAD /* Main.storyboard */,
+				97BF77EA1FEBB78D00514CAD /* Assets.xcassets */,
+				97BF77EC1FEBB78D00514CAD /* LaunchScreen.storyboard */,
+				97BF77EF1FEBB78D00514CAD /* Info.plist */,
+				97BF77F01FEBB78D00514CAD /* main.m */,
+			);
+			path = IGBLEPeripheralDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		97BF77DD1FEBB78D00514CAD /* IGBLEPeripheralDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97BF77F41FEBB78D00514CAD /* Build configuration list for PBXNativeTarget "IGBLEPeripheralDemo" */;
+			buildPhases = (
+				15886EAA052CEE217FAC14B1 /* [CP] Check Pods Manifest.lock */,
+				97BF77DA1FEBB78D00514CAD /* Sources */,
+				97BF77DB1FEBB78D00514CAD /* Frameworks */,
+				97BF77DC1FEBB78D00514CAD /* Resources */,
+				97E7067CACF4D98D46DE2F06 /* [CP] Embed Pods Frameworks */,
+				1192A4030884F694D432738B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IGBLEPeripheralDemo;
+			productName = IGBLEPeripheralDemo;
+			productReference = 97BF77DE1FEBB78D00514CAD /* IGBLEPeripheralDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		97BF77D61FEBB78C00514CAD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = geely;
+				TargetAttributes = {
+					97BF77DD1FEBB78D00514CAD = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 97BF77D91FEBB78C00514CAD /* Build configuration list for PBXProject "IGBLEPeripheralDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 97BF77D51FEBB78C00514CAD;
+			productRefGroup = 97BF77DF1FEBB78D00514CAD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				97BF77DD1FEBB78D00514CAD /* IGBLEPeripheralDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		97BF77DC1FEBB78D00514CAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97BF77EE1FEBB78D00514CAD /* LaunchScreen.storyboard in Resources */,
+				97BF77EB1FEBB78D00514CAD /* Assets.xcassets in Resources */,
+				97BF77E91FEBB78D00514CAD /* Main.storyboard in Resources */,
+				812A94C21FF111890090F59D /* SVProgressHUD.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1192A4030884F694D432738B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IGBLEPeripheralDemo/Pods-IGBLEPeripheralDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		15886EAA052CEE217FAC14B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IGBLEPeripheralDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97E7067CACF4D98D46DE2F06 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IGBLEPeripheralDemo/Pods-IGBLEPeripheralDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		97BF77DA1FEBB78D00514CAD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				812A94C41FF111890090F59D /* SVRadialGradientLayer.m in Sources */,
+				97BF77E61FEBB78D00514CAD /* ViewController.m in Sources */,
+				812A94C11FF111890090F59D /* SVProgressAnimatedView.m in Sources */,
+				97BF77F11FEBB78D00514CAD /* main.m in Sources */,
+				97BF77E31FEBB78D00514CAD /* AppDelegate.m in Sources */,
+				812A94C01FF111890090F59D /* SVIndefiniteAnimatedView.m in Sources */,
+				812A94C31FF111890090F59D /* SVProgressHUD.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		97BF77E71FEBB78D00514CAD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97BF77E81FEBB78D00514CAD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		97BF77EC1FEBB78D00514CAD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97BF77ED1FEBB78D00514CAD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		97BF77F21FEBB78D00514CAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		97BF77F31FEBB78D00514CAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		97BF77F51FEBB78D00514CAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11771DF4732ACECE4EB50DC3 /* Pods-IGBLEPeripheralDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VDJ53P4Q4U;
+				INFOPLIST_FILE = IGBLEPeripheralDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coderJackie.BLE1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		97BF77F61FEBB78D00514CAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8ABF6F9C9DB8B34085040D75 /* Pods-IGBLEPeripheralDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VDJ53P4Q4U;
+				INFOPLIST_FILE = IGBLEPeripheralDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coderJackie.BLE1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		97BF77D91FEBB78C00514CAD /* Build configuration list for PBXProject "IGBLEPeripheralDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97BF77F21FEBB78D00514CAD /* Debug */,
+				97BF77F31FEBB78D00514CAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97BF77F41FEBB78D00514CAD /* Build configuration list for PBXNativeTarget "IGBLEPeripheralDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97BF77F51FEBB78D00514CAD /* Debug */,
+				97BF77F61FEBB78D00514CAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 97BF77D61FEBB78C00514CAD /* Project object */;
+}
