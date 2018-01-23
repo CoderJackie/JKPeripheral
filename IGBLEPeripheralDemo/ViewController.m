@@ -159,37 +159,20 @@ typedef struct {
         self.statusData = [NSMutableData data];
         [self.statusData appendData:data];
     } else if ([characteristic.UUID.UUIDString isEqualToString:Receive_Data_Characteristic]) {
+        
         NSData *lengthData = [self.statusData subdataWithRange:NSMakeRange(0, 1)];
         int length = [BabyToy ConvertDataToInt:lengthData];
+        
         if (self.totalData.length <= length) {
             [self.totalData appendData:data];
+            
             if (self.totalData.length == length) {
-                Byte *totalBytes = (Byte *)[self.totalData bytes];
-                UInt16 sum = 0;
-                for (NSUInteger i = 0; i < length; i++) {
-                    sum = sum ^ totalBytes[i];
-                }
-                NSData *checkSumData = [self.statusData subdataWithRange:NSMakeRange(1, 2)];
-                Byte *checkSumBytes = (Byte *)[checkSumData bytes];
-                UInt16 originCheckSum = (checkSumBytes[0] << 8) + checkSumBytes[1];
                 
                 CBMutableCharacteristic *resultCharacter = (CBMutableCharacteristic *)[BabyToy findCharacteristicFormServices:self.services UUIDString:Receive_Data_Status_Characteristic];
                 
-                if (sum == originCheckSum) {
-                    NSString *transmitString = [[NSString alloc] initWithData:self.totalData encoding:NSUTF8StringEncoding];
-                    [self clearAction:nil];
-                    self.ShowLabel.text = transmitString;
-                    NSString *log = [NSString stringWithFormat:@"原: %@=%@ 现: %@", checkSumData, @(originCheckSum), @(sum)];
-                    [SVProgressHUD showSuccessWithStatus:log];
-                    resultCharacter.value = [BabyToy ConvertIntToData:1];
-                    NSLog(@"checkSum校验成功");
-                } else {
-                    [self clearAction:nil];
-                    NSString *log = [NSString stringWithFormat:@"原: %@=%@ 现: %@", checkSumData, @(originCheckSum), @(sum)];
-                    [SVProgressHUD showErrorWithStatus:log];
-                    resultCharacter.value = [BabyToy ConvertIntToData:0];
-                    NSLog(@"checkSum校验失败");
-                }
+                NSString *transmitString = [[NSString alloc] initWithData:self.totalData encoding:NSUTF8StringEncoding];
+                [self clearAction:nil];
+                self.ShowLabel.text = transmitString;
             }
         } else {
             [self clearAction:nil];
