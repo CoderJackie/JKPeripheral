@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,36 +21,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChO-bt-dCe">
-                                <rect key="frame" x="36" y="323.5" width="303" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhM-sh-9Gw">
+                                <rect key="frame" x="143" y="254" width="88" height="30"/>
+                                <state key="normal" title="修改BLE状态"/>
+                                <connections>
+                                    <action selector="BLEStatusChangeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VeZ-oF-sGE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFw-VK-a3x">
+                                <rect key="frame" x="126" y="314" width="123" height="30"/>
+                                <state key="normal" title="修改钥匙鉴权结果"/>
+                                <connections>
+                                    <action selector="DigitalKeytatusChangeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8tm-cJ-mwR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收到透传的数据状态：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dd-5f-3ye">
+                                <rect key="frame" x="20" y="40" width="143" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDh-MK-v0j">
-                                <rect key="frame" x="164.5" y="577" width="46" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收到透传的状态：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBR-yU-W9t">
+                                <rect key="frame" x="163" y="40" width="114.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收到透传的数据：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYV-1S-Uyz">
+                                <rect key="frame" x="20" y="77" width="115" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xSY-Hm-QFi">
+                                <rect key="frame" x="20" y="104" width="335" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="dJo-ZP-Kv1"/>
-                                    <constraint firstAttribute="width" constant="46" id="duP-Bj-Ah4"/>
+                                    <constraint firstAttribute="height" constant="100" id="33K-9d-DBC"/>
                                 </constraints>
-                                <state key="normal" title="清空"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2HS-Fe-QEO">
+                                <rect key="frame" x="140" y="374" width="96" height="30"/>
+                                <state key="normal" title="修改MCU状态"/>
                                 <connections>
-                                    <action selector="clearAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8sq-WQ-jiG"/>
+                                    <action selector="MainMCUStatusChangeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pi0-QI-lO2"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ChO-bt-dCe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="1dY-uF-slh"/>
-                            <constraint firstItem="ChO-bt-dCe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Cx-E1-Qz5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ChO-bt-dCe" secondAttribute="trailing" constant="20" id="M5R-bW-mSw"/>
-                            <constraint firstItem="zAa-y3-LQ3" firstAttribute="top" secondItem="eDh-MK-v0j" secondAttribute="bottom" constant="60" id="MP3-9e-Sxu"/>
-                            <constraint firstItem="eDh-MK-v0j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QS6-of-SZL"/>
-                            <constraint firstItem="ChO-bt-dCe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qpn-d3-vv2"/>
+                            <constraint firstItem="8dd-5f-3ye" firstAttribute="top" secondItem="f5H-K3-Ge7" secondAttribute="bottom" constant="20" id="0EM-BL-Ffx"/>
+                            <constraint firstAttribute="trailing" secondItem="xSY-Hm-QFi" secondAttribute="trailing" constant="20" id="1SY-6n-pvu"/>
+                            <constraint firstItem="2HS-Fe-QEO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="47X-Y9-hNa"/>
+                            <constraint firstItem="DFw-VK-a3x" firstAttribute="top" secondItem="dhM-sh-9Gw" secondAttribute="bottom" constant="30" id="TCn-Jj-1zF"/>
+                            <constraint firstItem="2HS-Fe-QEO" firstAttribute="top" secondItem="DFw-VK-a3x" secondAttribute="bottom" constant="30" id="Tbe-ob-OcG"/>
+                            <constraint firstItem="dhM-sh-9Gw" firstAttribute="top" secondItem="xSY-Hm-QFi" secondAttribute="bottom" constant="50" id="aHB-uz-hR6"/>
+                            <constraint firstItem="dhM-sh-9Gw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fTz-wN-lRt"/>
+                            <constraint firstItem="TBR-yU-W9t" firstAttribute="centerY" secondItem="8dd-5f-3ye" secondAttribute="centerY" id="gWV-Hv-4wA"/>
+                            <constraint firstItem="xSY-Hm-QFi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="hVJ-IU-akX"/>
+                            <constraint firstItem="8dd-5f-3ye" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="hax-q8-fbm"/>
+                            <constraint firstItem="ZYV-1S-Uyz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="jsu-He-upZ"/>
+                            <constraint firstItem="TBR-yU-W9t" firstAttribute="leading" secondItem="8dd-5f-3ye" secondAttribute="trailing" id="pyg-eA-at7"/>
+                            <constraint firstItem="ZYV-1S-Uyz" firstAttribute="top" secondItem="8dd-5f-3ye" secondAttribute="bottom" constant="20" id="vqa-Zq-KJf"/>
+                            <constraint firstItem="DFw-VK-a3x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xLb-pY-ofZ"/>
+                            <constraint firstItem="xSY-Hm-QFi" firstAttribute="top" secondItem="ZYV-1S-Uyz" secondAttribute="bottom" constant="10" id="yfC-cg-zW8"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ShowLabel" destination="ChO-bt-dCe" id="xQ7-hu-5Gh"/>
+                        <outlet property="passThroughDataStatusLabel" destination="TBR-yU-W9t" id="I2I-BE-5oL"/>
+                        <outlet property="passThroughDataTextView" destination="xSY-Hm-QFi" id="uQ2-Ow-Tem"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

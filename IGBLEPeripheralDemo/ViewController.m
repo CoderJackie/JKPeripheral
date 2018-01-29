@@ -35,7 +35,9 @@ typedef struct {
 } __attribute__((packed)) IGBLEStatus;
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *ShowLabel;
+@property (weak, nonatomic) IBOutlet UILabel *passThroughDataStatusLabel;
+@property (weak, nonatomic) IBOutlet UITextView *passThroughDataTextView;
+
 @property (strong, nonatomic) BabyBluetooth *baby;
 
 @property (strong, nonatomic) NSMutableData *statusData;
@@ -59,34 +61,21 @@ typedef struct {
 - (void)configServicesAndCharacteristics
 {
     CBMutableService *service1 = makeCBService(Pass_Through_Service);
-    makeCharacteristicToService(service1, Receive_Data_Status_Characteristic, @"rw", @"Receive_Data_Status_Characteristic");
-    makeCharacteristicToService(service1, Receive_Data_Characteristic, @"rw", @"Receive_Data_Characteristic");
-    makeCharacteristicToService(service1, Transmit_Data_Status_Characteristic, @"rw", @"Transmit_Data_Status_Characteristic");
-    makeCharacteristicToService(service1, Transmit_Data_Characteristic, @"rw", @"Transmit_Data_Characteristic");
+    makeCharacteristicToService(service1, Receive_Data_Status_Characteristic, @"rwn", @"Receive_Data_Status_Characteristic");
+    makeCharacteristicToService(service1, Receive_Data_Characteristic, @"rwn", @"Receive_Data_Characteristic");
+    makeCharacteristicToService(service1, Transmit_Data_Status_Characteristic, @"rwn", @"Transmit_Data_Status_Characteristic");
+    makeCharacteristicToService(service1, Transmit_Data_Characteristic, @"rwn", @"Transmit_Data_Characteristic");
 
     CBMutableService *service2 = makeCBService(@"8a97f7c0-8506-11e3-baa7-0800200c9a11");
     
-//    IGBLEStatus status;
-//    status.main_firmware_version.value[0] = 0x01;
-//    status.main_firmware_version.value[1] = 0x02;
-//    status.main_firmware_version.value[2] = 0x03;
-//    status.backup_firmware_version.value[0] = 0x06;
-//    status.backup_firmware_version.value[1] = 0x07;
-//    status.backup_firmware_version.value[2] = 0x08;
-//    status.upgrade_rom_size = 0xf;
-//    status.error_log_size = 0xf;
-//
-//    NSData *dataRes = [NSData dataWithBytes:&status length:sizeof(status)];
-    
-    makeCharacteristicToService(service2, BLE_Status_Characteristic, nil,@"BLE Status");
-    makeCharacteristicToService(service2, Digital_Key_Status_Characteristic, nil, @"Digital Key Status");
-    makeCharacteristicToService(service2, Main_MCU_Status_Characteristic, nil, @"Main MCU Status");
-    
-//    makeCharacteristicToService(service2, BLE_Status_Characteristic, @"rw", @"BLE Status");
-//    makeCharacteristicToService(service2, Digital_Key_Status_Characteristic, @"rw", @"Digital Key Status");
-//    makeCharacteristicToService(service2, Main_MCU_Status_Characteristic, @"rw", @"Main MCU Status");
+    makeCharacteristicToService(service2, BLE_Status_Characteristic, @"rwn",@"BLE Status");
+    makeCharacteristicToService(service2, Digital_Key_Status_Characteristic, @"rwn", @"Digital Key Status");
+    makeCharacteristicToService(service2, Main_MCU_Status_Characteristic, @"rwn", @"Main MCU Status");
     
     _services = [@[service1, service2] mutableCopy];
+    
+//    CBMutableCharacteristic *ble_status_charac = (CBMutableCharacteristic *)[BabyToy findCharacteristicFormServices:self.services UUIDString:BLE_Status_Characteristic] ;
+//    ble_status_charac.value = [self ble_status_data];
     self.baby.bePeripheral().addServices(@[service1, service2]).startAdvertising();
 }
 
@@ -134,16 +123,17 @@ typedef struct {
         }
     }];
     
-    [self.baby peripheralModelBlockOnDidSubscribeToCharacteristic:^(CBPeripheralManager *peripheral, CBCentral *central, CBCharacteristic *characteristic) {
-        NSLog(@"%@", characteristic);
-    }];
-    
     __block NSTimer *timer;
     //设置添加service委托 | set didAddService block
     [self.baby peripheralModelBlockOnDidSubscribeToCharacteristic:^(CBPeripheralManager *peripheral, CBCentral *central, CBCharacteristic *characteristic) {
         NSLog(@"订阅了 %@的数据",characteristic.UUID);
-        //每秒执行一次给主设备发送一个当前时间的秒数
-        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(sendData:) userInfo:characteristic  repeats:YES];
+//        if ([characteristic.UUID.UUIDString isEqualToString:BLE_Status_Characteristic]) {
+//            [self didSubscribeBLEStatus:characteristic];
+//        } else if ([characteristic.UUID.UUIDString isEqualToString:Digital_Key_Status_Characteristic]) {
+//            [self didSubscribeDigitalKeyStatus:characteristic];
+//        } else if ([characteristic.UUID.UUIDString isEqualToString:Main_MCU_Status_Characteristic]) {
+//            [self didSubscribeMainMCUStatus:characteristic];
+//        }
     }];
     
     //设置添加service委托 | set didAddService block
@@ -158,19 +148,26 @@ typedef struct {
     if ([characteristic.UUID.UUIDString isEqualToString:Receive_Data_Status_Characteristic]) {
         self.statusData = [NSMutableData data];
         [self.statusData appendData:data];
+        self.passThroughDataStatusLabel.text = [NSString stringWithFormat:@"%@", self.statusData];
+        
+        CBMutableCharacteristic *data_Status_Characteristic = (CBMutableCharacteristic *)[BabyToy findCharacteristicFormServices:self.services UUIDString:Transmit_Data_Status_Characteristic] ;
+        [self.baby.peripheralManager updateValue:self.statusData forCharacteristic:data_Status_Characteristic onSubscribedCentrals:nil];
+        
     } else if ([characteristic.UUID.UUIDString isEqualToString:Receive_Data_Characteristic]) {
         
         NSData *lengthData = [self.statusData subdataWithRange:NSMakeRange(0, 1)];
         int length = [BabyToy ConvertDataToInt:lengthData];
         
+        [self writeToTramsmitCharacter:data];
+        
         if (self.totalData.length <= length) {
             [self.totalData appendData:data];
-            
+//            self.passThroughDataTextView.text = [NSString stringWithFormat:@"%@", self.totalData];
             if (self.totalData.length == length) {
                 
                 NSString *transmitString = [[NSString alloc] initWithData:self.totalData encoding:NSUTF8StringEncoding];
                 [self clearAction:nil];
-                self.ShowLabel.text = transmitString;
+                self.passThroughDataTextView.text = transmitString;
             }
         } else {
             [self clearAction:nil];
@@ -178,82 +175,79 @@ typedef struct {
     }
 }
 
-//发送数据，发送当前时间的秒数
--(BOOL)sendData:(NSTimer *)t {
-    CBMutableCharacteristic *characteristic = t.userInfo;
-    NSDateFormatter *dft = [[NSDateFormatter alloc]init];
-    [dft setDateFormat:@"ss"];
-    //    NSLog(@"%@",[dft stringFromDate:[NSDate date]]);
-    //执行回应Central通知数据
-    return  [self.baby.peripheralManager updateValue:[[dft stringFromDate:[NSDate date]] dataUsingEncoding:NSUTF8StringEncoding] forCharacteristic:(CBMutableCharacteristic *)characteristic onSubscribedCentrals:nil];
+- (void)writeToTramsmitCharacter:(NSData *)data
+{
+    CBMutableCharacteristic *data_Characteristic = (CBMutableCharacteristic *)[BabyToy findCharacteristicFormServices:self.services UUIDString:Transmit_Data_Characteristic] ;
+
+    [self.baby.peripheralManager updateValue:data forCharacteristic:data_Characteristic onSubscribedCentrals:nil];
 }
-- (IBAction)clearAction:(id)sender {
-    self.ShowLabel.text = nil;
+
+- (IBAction)BLEStatusChangeAction:(id)sender {
+    CBMutableCharacteristic *mutableC  = (CBMutableCharacteristic *)[BabyToy findCharacteristicFormServices:self.services UUIDString:BLE_Status_Characteristic];
+    [self.baby.peripheralManager updateValue:[self ble_status_data] forCharacteristic:mutableC onSubscribedCentrals:nil];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.baby.peripheralManager updateValue:[self ble_status_data_NEW] forCharacteristic:mutableC onSubscribedCentrals:nil];
+    });
+}
+
+//0是无效，1是有效，2是待校验
+- (IBAction)DigitalKeytatusChangeAction:(id)sender {
+    CBMutableCharacteristic *mutableC = (CBMutableCharacteristic *)[BabyToy findCharacteristicFormServices:self.services UUIDString:Digital_Key_Status_Characteristic];
+    
+    [self.baby.peripheralManager updateValue:[BabyToy ConvertIntToData:1] forCharacteristic:mutableC onSubscribedCentrals:nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.baby.peripheralManager updateValue:[BabyToy ConvertIntToData:0] forCharacteristic:mutableC onSubscribedCentrals:nil];
+    });
+}
+
+//0：工作态 1：standby 2：sleep
+- (IBAction)MainMCUStatusChangeAction:(id)sender {
+    CBMutableCharacteristic *mutableC = (CBMutableCharacteristic *)[BabyToy findCharacteristicFormServices:self.services UUIDString:Main_MCU_Status_Characteristic];;
+    [self.baby.peripheralManager updateValue:[BabyToy ConvertIntToData:0] forCharacteristic:mutableC onSubscribedCentrals:nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.baby.peripheralManager updateValue:[BabyToy ConvertIntToData:1] forCharacteristic:mutableC onSubscribedCentrals:nil];
+    });
+}
+
+- (NSData *)ble_status_data
+{
+    IGBLEStatus status;
+    status.main_firmware_version.value[0] = 0x01;
+    status.main_firmware_version.value[1] = 0x02;
+    status.main_firmware_version.value[2] = 0x03;
+    status.backup_firmware_version.value[0] = 0x06;
+    status.backup_firmware_version.value[1] = 0x07;
+    status.backup_firmware_version.value[2] = 0x08;
+    status.upgrade_rom_size = 0xf;
+    status.error_log_size = 0xf;
+    
+    NSData *dataRes = [NSData dataWithBytes:&status length:sizeof(status)];
+    return dataRes;
+}
+
+- (NSData *)ble_status_data_NEW
+{
+    IGBLEStatus status;
+    status.main_firmware_version.value[0] = 0x03;
+    status.main_firmware_version.value[1] = 0x02;
+    status.main_firmware_version.value[2] = 0x01;
+    status.backup_firmware_version.value[0] = 0x08;
+    status.backup_firmware_version.value[1] = 0x07;
+    status.backup_firmware_version.value[2] = 0x06;
+    status.upgrade_rom_size = 0xe;
+    status.error_log_size = 0xd;
+    
+    NSData *dataRes = [NSData dataWithBytes:&status length:sizeof(status)];
+    return dataRes;
+}
+
+- (void)clearAction:(id)sender {
+//    self.passThroughDataStatusLabel.text = nil;
     
     //NSMutableData 清空
     [self.totalData resetBytesInRange:NSMakeRange(0, [self.totalData length])];
     [self.totalData setLength:0];
-}
-
-//62-Find Car
-//63-Unlock Car
-//64-Lock Car
-//65 - Open Window
-//66 - Close Window
-//67 - Car Status
-- (void)showOperation:(NSString *)type{
-    NSString *title = @"";
-    switch ([type intValue]) {
-        case 62:
-            title = @"Find Car";
-            break;
-        case 63:
-            title = @"Unlock Car";
-            break;
-        case 64:
-            title = @"Lock Car";
-            break;
-        case 65:
-            title = @"Window Turn On";
-            break;
-        case 66:
-            title = @"Window Turn Off";
-            break;
-        case 67:
-            title = @"Car Status";
-            break;
-        case 68:
-            title = @"Fire";
-            break;
-        case 69:
-            title = @"AirConditioner On";
-            break;
-        case 70:
-            title = @"AirConditioner Off";
-            break;
-        case 71:
-            title = @"Trunk Open";
-            break;
-        case 72:
-            title = @"Air Purification";
-            break;
-        case 73:
-            title = @"Sunroof Open";
-            break;
-        case 74:
-            title = @"Sunroof Close";
-            break;
-        case 75:
-            title = @"SeatHeating On";
-            break;
-        case 76:
-            title = @"SeatHeating Off";
-            break;
-        default:
-            break;
-    }
-    _ShowLabel.text = title;
-    
 }
 
 - (NSMutableData *)totalData
